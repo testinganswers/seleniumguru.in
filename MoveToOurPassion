@@ -1,0 +1,36 @@
+# seleniumguru.in
+
+package seleniumguru.in;
+
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class MoveToOurPassion {
+
+	public static void main(String[] args) {
+		
+		//Create firefox driver class
+		WebDriver oWebDriver = new FirefoxDriver();
+
+		//Open seleniumguru.in url
+		oWebDriver.get("http://www.seleniumguru.in");
+
+		//Maximize driver window
+		oWebDriver.manage().window().maximize();
+
+		// wait for a certain amount of time, when trying to find an elements if they are not immediately available.	
+		oWebDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		//Switch to Our Passtion frame
+		oWebDriver.switchTo().frame(0);
+
+		//Click on Our Passion
+		oWebDriver.findElement(By.xpath(".//*[@id='menu-item-149']/a")).click();
+		
+		//Close all open browser
+		oWebDriver.quit();
+	}
+
+}
